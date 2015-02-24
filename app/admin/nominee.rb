@@ -1,4 +1,5 @@
 ActiveAdmin.register Nominee do
+  permit_params :description, :video_id, :category_id, :nominee_type, :nominee, :nominee_description
 
 
   # See permitted parameters documentation:
