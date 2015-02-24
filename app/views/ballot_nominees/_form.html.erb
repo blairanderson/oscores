@@ -1,16 +1,40 @@
-<%= simple_form_for(@ballot_nominee) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :video_id %>
-    <%= f.input :category_key %>
-    <%= f.input :bn_type %>
-    <%= f.input :nominee %>
-    <%= f.input :nominee_description %>
-    <%= f.association :ballot %>
+<%= form_for @ballot_nominee, :html => { :class => 'form-horizontal form-model' } do |f| %>
+  <div class="form-group">
+    <%= f.label :video_id, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :video_id, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :category_key, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :category_key, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :bn_type, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :bn_type, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :nominee, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :nominee, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :nominee_description, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :nominee_description, :class => 'text-field form-control' %>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  ballot_nominees_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>
