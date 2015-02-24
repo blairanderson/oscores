@@ -1,37 +1,46 @@
-<h1>Listing nominees</h1>
-
-<table>
+<%- model_class = Nominee -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Nominee %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Description</th>
-      <th>Video</th>
-      <th>Category</th>
-      <th>Nominee type</th>
-      <th>Nominee</th>
-      <th>Nominee description</th>
-      <th>Event</th>
-      <th colspan="3"></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:video_id) %></th>
+      <th><%= model_class.human_attribute_name(:category_id) %></th>
+      <th><%= model_class.human_attribute_name(:nominee_type) %></th>
+      <th><%= model_class.human_attribute_name(:nominee) %></th>
+      <th><%= model_class.human_attribute_name(:nominee_description) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @nominees.each do |nominee| %>
       <tr>
+        <td><%= nominee.id %></td>
         <td><%= nominee.description %></td>
         <td><%= nominee.video_id %></td>
         <td><%= nominee.category_id %></td>
         <td><%= nominee.nominee_type %></td>
         <td><%= nominee.nominee %></td>
         <td><%= nominee.nominee_description %></td>
-        <td><%= nominee.event %></td>
-        <td><%= link_to 'Show', nominee %></td>
-        <td><%= link_to 'Edit', edit_nominee_path(nominee) %></td>
-        <td><%= link_to 'Destroy', nominee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l nominee.created_at, format: :long %></td>
+        <td>
+          <%= link_to nominee_path(nominee), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to nominee_path(nominee), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Nominee', new_nominee_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_nominee_path,
+            :class => 'btn btn-primary' %>

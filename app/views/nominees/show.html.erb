@@ -1,39 +1,34 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Nominee -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Nominee %></h1>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @nominee.description %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:description) %></dt>
+      <dd><pre class="prettyprint"><%= @nominee.description %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:video_id) %></dt>
+      <dd><pre class="prettyprint"><%= @nominee.video_id %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:category_id) %></dt>
+      <dd><pre class="prettyprint"><%= @nominee.category_id %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:nominee_type) %></dt>
+      <dd><pre class="prettyprint"><%= @nominee.nominee_type %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:nominee) %></dt>
+      <dd><pre class="prettyprint"><%= @nominee.nominee %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:nominee_description) %></dt>
+      <dd><pre class="prettyprint"><%= @nominee.nominee_description %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Video:</strong>
-  <%= @nominee.video_id %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              nominees_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_nominee_path(@nominee), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              nominee_path(@nominee),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Category:</strong>
-  <%= @nominee.category_id %>
-</p>
-
-<p>
-  <strong>Nominee type:</strong>
-  <%= @nominee.nominee_type %>
-</p>
-
-<p>
-  <strong>Nominee:</strong>
-  <%= @nominee.nominee %>
-</p>
-
-<p>
-  <strong>Nominee description:</strong>
-  <%= @nominee.nominee_description %>
-</p>
-
-<p>
-  <strong>Event:</strong>
-  <%= @nominee.event %>
-</p>
-
-<%= link_to 'Edit', edit_nominee_path(@nominee) %> |
-<%= link_to 'Back', nominees_path %>
