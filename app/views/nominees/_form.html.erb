@@ -1,0 +1,17 @@
+<%= simple_form_for(@nominee) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :description %>
+    <%= f.input :video_id %>
+    <%= f.input :category_id %>
+    <%= f.input :nominee_type %>
+    <%= f.input :nominee %>
+    <%= f.input :nominee_description %>
+    <%= f.association :event %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

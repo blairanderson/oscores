@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @nominee.description %>
+</p>
+
+<p>
+  <strong>Video:</strong>
+  <%= @nominee.video_id %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @nominee.category_id %>
+</p>
+
+<p>
+  <strong>Nominee type:</strong>
+  <%= @nominee.nominee_type %>
+</p>
+
+<p>
+  <strong>Nominee:</strong>
+  <%= @nominee.nominee %>
+</p>
+
+<p>
+  <strong>Nominee description:</strong>
+  <%= @nominee.nominee_description %>
+</p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @nominee.event %>
+</p>
+
+<%= link_to 'Edit', edit_nominee_path(@nominee) %> |
+<%= link_to 'Back', nominees_path %>

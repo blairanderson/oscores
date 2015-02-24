@@ -1,0 +1,37 @@
+<h1>Listing nominees</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Video</th>
+      <th>Category</th>
+      <th>Nominee type</th>
+      <th>Nominee</th>
+      <th>Nominee description</th>
+      <th>Event</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @nominees.each do |nominee| %>
+      <tr>
+        <td><%= nominee.description %></td>
+        <td><%= nominee.video_id %></td>
+        <td><%= nominee.category_id %></td>
+        <td><%= nominee.nominee_type %></td>
+        <td><%= nominee.nominee %></td>
+        <td><%= nominee.nominee_description %></td>
+        <td><%= nominee.event %></td>
+        <td><%= link_to 'Show', nominee %></td>
+        <td><%= link_to 'Edit', edit_nominee_path(nominee) %></td>
+        <td><%= link_to 'Destroy', nominee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Nominee', new_nominee_path %>
