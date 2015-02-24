@@ -1,9 +1,22 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Ballot -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Ballot %></h1>
+</div>
 
-<p>
-  <strong>Event:</strong>
-  <%= @ballot.event %>
-</p>
+<div class="fieldset">
+  <dl>
+  </dl>
+</div>
 
-<%= link_to 'Edit', edit_ballot_path(@ballot) %> |
-<%= link_to 'Back', ballots_path %>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              ballots_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_ballot_path(@ballot), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              ballot_path(@ballot),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
+
