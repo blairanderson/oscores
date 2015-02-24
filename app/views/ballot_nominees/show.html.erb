@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Video:</strong>
+  <%= @ballot_nominee.video_id %>
+</p>
+
+<p>
+  <strong>Category key:</strong>
+  <%= @ballot_nominee.category_key %>
+</p>
+
+<p>
+  <strong>Bn type:</strong>
+  <%= @ballot_nominee.bn_type %>
+</p>
+
+<p>
+  <strong>Nominee:</strong>
+  <%= @ballot_nominee.nominee %>
+</p>
+
+<p>
+  <strong>Nominee description:</strong>
+  <%= @ballot_nominee.nominee_description %>
+</p>
+
+<p>
+  <strong>Ballot:</strong>
+  <%= @ballot_nominee.ballot %>
+</p>
+
+<%= link_to 'Edit', edit_ballot_nominee_path(@ballot_nominee) %> |
+<%= link_to 'Back', ballot_nominees_path %>

@@ -1,0 +1,35 @@
+<h1>Listing ballot_nominees</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Video</th>
+      <th>Category key</th>
+      <th>Bn type</th>
+      <th>Nominee</th>
+      <th>Nominee description</th>
+      <th>Ballot</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ballot_nominees.each do |ballot_nominee| %>
+      <tr>
+        <td><%= ballot_nominee.video_id %></td>
+        <td><%= ballot_nominee.category_key %></td>
+        <td><%= ballot_nominee.bn_type %></td>
+        <td><%= ballot_nominee.nominee %></td>
+        <td><%= ballot_nominee.nominee_description %></td>
+        <td><%= ballot_nominee.ballot %></td>
+        <td><%= link_to 'Show', ballot_nominee %></td>
+        <td><%= link_to 'Edit', edit_ballot_nominee_path(ballot_nominee) %></td>
+        <td><%= link_to 'Destroy', ballot_nominee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ballot nominee', new_ballot_nominee_path %>
